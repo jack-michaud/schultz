@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -119,7 +119,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/checker/static/'
+
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'react_files/default/assets/'),
@@ -129,7 +131,7 @@ STATICFILES_DIRS = (
 # Webpack loader
 WEBPACK_LOADER = {
     'DEFAULT': {
-        'BUNDLE_DIR_NAME': 'react_files/default/bundles/',
+        'BUNDLE_DIR_NAME': 'default/bundles/',
         'STATS_FILE': os.path.join(BASE_DIR, 'react_files/default/webpack-stats.json'),
     }
 }
