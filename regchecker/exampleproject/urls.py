@@ -20,5 +20,5 @@ import frontend.urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^checker/', include(frontend.urls)),
+    url(r'^', include(frontend.urls)),
 ]
