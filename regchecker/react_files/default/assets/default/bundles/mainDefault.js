@@ -24697,17 +24697,104 @@ var _reactRedux = __webpack_require__(97);
 
 var _redux = __webpack_require__(53);
 
+var _reducers = __webpack_require__(226);
+
+var _reducers2 = _interopRequireDefault(_reducers);
+
+var _root = __webpack_require__(225);
+
+var _root2 = _interopRequireDefault(_root);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var store = (0, _redux.createStore)(_reducers2.default);
 
 var Index = function Index() {
 	return _react2.default.createElement(
-		'div',
-		null,
-		'Hello!'
+		_reactRedux.Provider,
+		{ store: store },
+		_react2.default.createElement(
+			'div',
+			null,
+			_react2.default.createElement(_root2.default, null)
+		)
 	);
 };
 
 _reactDom2.default.render(_react2.default.createElement(Index, null), document.getElementById('react-app'));
+
+/***/ },
+/* 225 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = __webpack_require__(32);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Root = function Root() {
+	return _react2.default.createElement(
+		'div',
+		null,
+		'Hello world!'
+	);
+};
+
+exports.default = Root;
+
+/***/ },
+/* 226 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _redux = __webpack_require__(53);
+
+var _errors = __webpack_require__(227);
+
+var rootReducer = (0, _redux.combineReducers)({
+	errors: _errors.errors
+});
+
+exports.default = rootReducer;
+
+/***/ },
+/* 227 */
+/***/ function(module, exports) {
+
+"use strict";
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var errors = exports.errors = function errors() {
+	var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	var action = arguments[1];
+
+
+	switch (action.type) {
+
+		case "ERROR":
+			return { "error": action.message };
+
+		default:
+			return state;
+	}
+};
 
 /***/ }
 /******/ ]);
