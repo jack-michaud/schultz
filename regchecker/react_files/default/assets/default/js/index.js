@@ -10,9 +10,9 @@ import Root from './containers/root';
 const store = createStore(rootReducer);
 
 const Index = () => (
-	<Provider store={store}>
-		<div><Root /></div>
-	</Provider>
+    <Provider store={store}>
+        <div><Root /></div>
+    </Provider>
 )
 
 ReactDOM.render(<Index />, document.getElementById('react-app'));

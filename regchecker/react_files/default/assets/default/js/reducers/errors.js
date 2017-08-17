@@ -1,11 +1,11 @@
 
-export const errors = (state = {}, action) => {
+export const errors = (state = null, action) => {
 
-	switch (action.type) {
+    switch (action.type) {
 
-	case "ERROR": 
-		return {"error": action.message};
+    case "ERROR": 
+        return action.message;
 
-	default: return state;
-	}
+    default: return state;
+    }
 }
